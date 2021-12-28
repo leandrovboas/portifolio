@@ -20,12 +20,15 @@
   },
   "homepage": "https://github.com/leandrovboas/portifolio#readme",
   "dependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
     "build": "^0.1.4",
     "next": "^10.2.0",
     "next-images": "^1.7.0",
     "polished": "^4.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
     "start": "^5.1.0",
     "styled-components": "^5.3.1"
   },
