@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import HomeHero from '../components/HomeHero';
 import { HomeContainer } from '../styles/HomeStyles';
 import Conhecimentos from '../components/Conhecimentos';
+import FormContato from '../components/FormContato';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Experiencias />
         <Projetos />
         <Conhecimentos />
+        <FormContato />
       </main>
     </HomeContainer>
   );
