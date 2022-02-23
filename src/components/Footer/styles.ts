@@ -1,13 +1,34 @@
 import styled from 'styled-components';
 
+export const Button = styled.button`
+  display: relative;
+  border-top: 0.5rem solid ${({ theme }) => theme.primary};
+  border-left: 0;
+  border-right: 0;
+
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+  height: 2px;
+  transition: height 0.8s ease-in-out;
+
+  &:hover {
+    height: 4rem;
+  }
+`;
+
 export const Container = styled.footer`
   width: 100%;
   display: flex;
-  margin-top: 10rem;
-  border-top: 1px solid ${({ theme }) => theme.backgroundLight};
-  height: 5rem;
+  height: 4rem;
   align-items: center;
   justify-content: center;
+
+  padding: 3px;
+  margin: 0;
+  background: ${({ theme }) => theme.background};
 
   > div {
     display: flex;
@@ -40,8 +61,8 @@ export const Container = styled.footer`
 
         &:hover {
           color: ${({ theme }) => theme.primary};
-          width: 2.2rem;
-          height: 2.2rem;
+          width: 2.3rem;
+          height: 2.3rem;
         }
 
         @media (max-width: 450px) {

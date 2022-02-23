@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import ProjtoItem from './ProjetoItem';
 import SectionTitle from '../SectionTitle';
 import { Container } from './styles';
 
 function Projetos() {
+  const t = useTranslations('Home.Projetos');
   return (
     <Container>
-      <SectionTitle title="Últimos Projetos" />
+      <SectionTitle title={String(t('title'))} />
       <section>
         <ProjtoItem
           title="Projeto 1"

@@ -1,0 +1,29 @@
+{
+  "Home": {
+    "HomeHero": {
+      "title": "Hi",
+      "sub-title": "I'm Leandro",
+      "_nome": "First Name: ",
+      "primeiro": "Leandro,",
+      "_sobrenome": "Last Name: ",
+      "sobrenome": "Vilas Boas",
+      "_github": "Github: ",
+      "github": "Leandrovboas",
+      "comentario1": "//My presentation",
+      "comentario2": "//Professional info",
+      "infos": "Infos",
+      "cargo": "My position",
+      "_funcao": "Position: ",
+      "funcao": " Full Stack Developer,",
+      "_empresa": "Company : ",
+      "empresa": "Lambda3"
+    },
+    "Experiencias": {
+      "anos": "years",
+      "sub-title": "of professional experience"
+    },
+    "Projetos": {
+      "title": "Last projects"
+    }
+  }
+}
