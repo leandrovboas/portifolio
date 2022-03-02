@@ -12,7 +12,7 @@ export const Button = styled.button`
   padding: 0;
   width: 100%;
   height: 2px;
-  transition: height 0.8s ease-in-out;
+  transition: height 0.5s ease-in-out;
 
   &:hover {
     height: 4rem;

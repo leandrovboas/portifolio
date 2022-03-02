@@ -2,12 +2,11 @@ import { useTranslations } from 'next-intl';
 import SectionTitle from '../SectionTitle';
 import ExperienciaItem from './ExperienciaItem';
 import { Container } from './styles';
+import { getAnosDeExperiencia } from '../../utils/anosDeExperiencia';
 
 function Experiencias() {
   const t = useTranslations('Home.Experiencias');
-  const anoAtual: number = new Date().getFullYear();
-  const anoFormado: number = 2010;
-  const anosExperiencia = anoAtual - anoFormado;
+  const anosExperiencia = getAnosDeExperiencia(2010);
   const result = `${anosExperiencia} ${String(t('anos'))}`;
 
   return (

@@ -8,7 +8,7 @@ export const Container = styled.section`
   margin-top: 5rem;
 
   > img {
-    width: 40rem;
+    width: 38rem;
     flex: 1;
     border-radius: 50%;
   }
@@ -19,7 +19,7 @@ export const Container = styled.section`
 
   @media (max-width: 1458px) {
     > img {
-      width: 38rem;
+      width: 35rem;
     }
 
     > div {
@@ -82,6 +82,7 @@ export const InfosContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  padding-left: 3rem;
 `;
 
 export const CodeItem = styled.pre`
