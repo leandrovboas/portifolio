@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import SectionTitle from '../SectionTitle';
 import ExperienciaItem from './ExperienciaItem';
 import { Container } from './styles';
-import { getAnosDeExperiencia } from '../../utils/anosDeExperiencia';
+import { getAnosDeExperiencia } from '../../utils/AnosDeExperiencia';
 
 function Experiencias() {
   const t = useTranslations('Home.Experiencias');

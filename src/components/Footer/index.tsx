@@ -5,7 +5,7 @@ import {
   AiOutlineMedium,
   AiOutlineInstagram
 } from 'react-icons/ai';
-import { Button, Container, Icon, Label, Link, Teste } from './styles';
+import { Button, Container } from './styles';
 
 function Footer() {
   function handleRedirect(url: string) {
@@ -21,14 +21,6 @@ function Footer() {
 
   return (
     <>
-      {/* <Teste>
-        <Link href="#">
-          <Icon viewBox="0 0 20 20">
-            <path d="M10 15h8c1 0 2-1 2-2V3c0-1-1-2-2-2H2C1 1 0 2 0 3v10c0 1 1 2 2 2h4v4l4-4zM5 7h2v2H5V7zm4 0h2v2H9V7zm4 0h2v2h-2V7z" />
-          </Icon>
-          <p>Hovering my parent changes my style!</p>
-        </Link>
-      </Teste> */}
       <Button>
         <Container>
           <div className="container">

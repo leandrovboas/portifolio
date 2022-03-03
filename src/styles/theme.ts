@@ -23,7 +23,7 @@ const theme = {
   text: '#00c1c5',
   textHighlight: '#027F9F',
   textLight: '#B6E5EB',
-  border: '#000000',
+  border: '#231f20',
   inputBackground: '#4F4F4F',
   error: '#d45d5d'
 };
