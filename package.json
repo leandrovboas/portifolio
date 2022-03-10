@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "publish": "npm install && next build && next start"
+    "publish": "npm install && next build && next start",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,11 @@
   },
   "homepage": "https://github.com/leandrovboas/portifolio#readme",
   "dependencies": {
+    "@apollo/client": "^3.5.10",
     "@babel/core": "^7.16.5",
     "@babel/preset-typescript": "^7.16.5",
     "build": "^0.1.4",
+    "graphql": "^16.3.0",
     "next": "^10.2.0",
     "next-images": "^1.7.0",
     "next-intl": "^2.4.0",
@@ -35,6 +38,8 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/introspection": "2.1.1",
     "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
@@ -59,7 +64,9 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^27.5.1",
     "prettier": "^2.3.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "@graphql-codegen/typescript-react-apollo": "3.2.10",
+    "@graphql-codegen/typescript": "2.4.7"
   },
   "config": {
     "commitizen": {

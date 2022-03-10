@@ -1,39 +1,58 @@
+import apolloClient from '../../apollo/apolloClient';
+import { projetosQuery } from '../../apollo/queries/projetosQuery';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import ProjetoItem from '../../components/ProjetoItem';
+import { ProjectResponseCollection } from '../../graphql';
 import { ProjetosContainer } from './styles';
+import { IProjeto } from '../../types/IProjet';
 
-export default function Projetos() {
+interface ProjetoProps {
+  projetos: IProjeto[];
+}
+
+export default function ProjetosProjetos({ projetos }: ProjetoProps) {
   return (
     <ProjetosContainer>
       <Header />
       <main className="container">
-        <ProjetoItem
-          title="Projeto -1"
-          type="website"
-          slug="teste"
-          imgUrl="https://www.lambda3.com.br/wp-content/uploads//2016/07/PODCAST_POSTAGEMBLOG.jpg"
-        />
-        <ProjetoItem
-          title="Projeto -1"
-          type="website"
-          slug="teste"
-          imgUrl="https://secure.meetupstatic.com/photos/event/b/3/9/0/600_465405968.jpeg"
-        />
-        <ProjetoItem
-          title="Projeto -1"
-          type="website"
-          slug="teste"
-          imgUrl="https://secure.meetupstatic.com/photos/event/b/3/9/0/600_465405968.jpeg"
-        />
-        <ProjetoItem
-          title="Projeto -1"
-          type="website"
-          slug="teste"
-          imgUrl="https://secure.meetupstatic.com/photos/event/b/3/9/0/600_465405968.jpeg"
-        />
+        {projetos?.map(projeto => (
+          <ProjetoItem
+            key={projeto.id}
+            title={projeto.title}
+            type={projeto.type}
+            slug={projeto.slug}
+            imgUrl={projeto.thumbnail}
+          />
+        ))}
       </main>
       <Footer />
     </ProjetosContainer>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    const { data } = await apolloClient.query<ProjectResponseCollection>({
+      query: projetosQuery
+    });
+    const projetos = data.projects.data[0].attributes.Project.map(projeto => ({
+      id: projeto.id,
+      slug: projeto.Title,
+      title: projeto.Title,
+      type: projeto.SubTitle,
+      description: projeto.Content,
+      thumbnail: `${process.env.NEXT_PUBLIC_STRAPI}${projeto.Banner.data.attributes.url}`
+    }));
+
+    return {
+      props: { projetos }
+    };
+  } catch (err) {
+    console.error('Error fetching data apolloClient projects', err);
+
+    return {
+      props: {}
+    };
+  }
 }
