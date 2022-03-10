@@ -52,19 +52,10 @@ export type BooleanFilterInput = {
 export type ComponentPageProject = {
   __typename?: 'ComponentPageProject';
   Banner: UploadFileEntityResponse;
-  Content?: Maybe<Scalars['String']>;
+  Content: Scalars['String'];
   SubTitle: Scalars['String'];
   Title: Scalars['String'];
   id: Scalars['ID'];
-};
-
-export type ComponentPageProjectFiltersInput = {
-  Content?: InputMaybe<StringFilterInput>;
-  SubTitle?: InputMaybe<StringFilterInput>;
-  Title?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<ComponentPageProjectFiltersInput>>>;
-  not?: InputMaybe<ComponentPageProjectFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentPageProjectFiltersInput>>>;
 };
 
 export type ComponentPageProjectInput = {
@@ -391,16 +382,11 @@ export type PaginationArg = {
 
 export type Project = {
   __typename?: 'Project';
-  Project: Array<Maybe<ComponentPageProject>>;
+  Project: ComponentPageProject;
   createdAt?: Maybe<Scalars['DateTime']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
+  slug: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type ProjectProjectArgs = {
-  filters?: InputMaybe<ComponentPageProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type ProjectEntity = {
@@ -411,11 +397,7 @@ export type ProjectEntity = {
 
 export type ProjectEntityResponse = {
   __typename?: 'ProjectEntityResponse';
-  data?: Maybe<ProjectEntity>;
-};
-
-export type ProjectResponseCollection = {
-  projects: ProjectEntityResponseCollection;
+  data?: Array<ProjectEntity>;
 };
 
 export type ProjectEntityResponseCollection = {
@@ -431,12 +413,14 @@ export type ProjectFiltersInput = {
   not?: InputMaybe<ProjectFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  slug?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type ProjectInput = {
-  Project?: InputMaybe<Array<InputMaybe<ComponentPageProjectInput>>>;
+  Project?: InputMaybe<ComponentPageProjectInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
+  slug?: InputMaybe<Scalars['String']>;
 };
 
 export enum PublicationState {

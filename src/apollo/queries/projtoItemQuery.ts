@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const projetosQuery = gql`
-  {
-    projects {
+export const projetoItemQuery = gql`
+  query ($slug: String!) {
+    projects(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
           slug

@@ -1,4 +1,9 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import {
+  ApolloClient,
+  createHttpLink,
+  DefaultOptions,
+  InMemoryCache
+} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
@@ -6,6 +11,12 @@ const httpLink = createHttpLink({
     `${process.env.NEXT_PUBLIC_STRAPI}/graphql` ||
     'https://portifolio-strapi.herokuapp.com/graphql'
 });
+
+const defaultOptions: DefaultOptions = {
+  query: {
+    fetchPolicy: 'no-cache'
+  }
+};
 
 const authLink = setContext((_, { headers }) =>
   // const token = localStorage.getItem('token');
@@ -19,6 +30,7 @@ const authLink = setContext((_, { headers }) =>
 
 const apolloClient = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  defaultOptions
 });
 export default apolloClient;
