@@ -2,7 +2,7 @@ import { ItemContainer } from './styles';
 
 function ExperienciaItem() {
   return (
-    <ItemContainer>
+    <ItemContainer data-aos="fade-up">
       <div>
         <h1>2021</h1>
         <h2>Dev Full Stack</h2>

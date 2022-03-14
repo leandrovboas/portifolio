@@ -1,17 +1,25 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+interface ButtonProps {
+  ScrollPosition: number;
+}
+
+export const Button = styled.button<ButtonProps>`
   display: relative;
   border-top: 0.5rem solid ${({ theme }) => theme.primary};
   border-left: 0;
   border-right: 0;
+  border-bottom: 0;
 
   overflow: hidden;
   position: fixed;
   bottom: 0;
   padding: 0;
   width: 100%;
-  height: 2px;
+
+  height: ${props =>
+    props.ScrollPosition === 0 || props.ScrollPosition >= 99 ? '4rem' : '3px'};
+
   transition: height 0.5s ease-in-out;
 
   &:hover {

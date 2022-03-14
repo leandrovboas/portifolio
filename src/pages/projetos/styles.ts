@@ -21,5 +21,13 @@ export const ProjetosContainer = styled.div`
     @media (max-width: 550) {
       grid-template-columns: 1fr;
     }
+
+    div.tilt {
+      line-height: 1.6 !important;
+      width: 300px !important;
+      border-radius: 10px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
   }
 `;

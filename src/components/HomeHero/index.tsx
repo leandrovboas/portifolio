@@ -5,7 +5,7 @@ import picture from '../../assets/leandro.webp';
 function HomeHero() {
   const t = useTranslations('Home.HomeHero');
   return (
-    <Container>
+    <Container data-aos="fade-up">
       <img src={picture} alt="Minha Foto" />
       <div>
         <TextContainer>

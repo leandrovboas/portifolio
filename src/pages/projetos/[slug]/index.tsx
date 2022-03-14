@@ -1,8 +1,7 @@
+import Head from 'next/head';
 import apolloClient from '../../../apollo/apolloClient';
 import { projetoItemQuery } from '../../../apollo/queries/projtoItemQuery';
 import BannerProjeto from '../../../components/BannerProjeto';
-import Footer from '../../../components/Footer';
-import Header from '../../../components/Header';
 import { IProjectResponse, IProjeto } from '../../../types/Projet';
 import { ProjetoContainer } from './styles';
 
@@ -13,7 +12,15 @@ interface ProjetoProps {
 export default function Projetos({ projeto }: ProjetoProps) {
   return (
     <ProjetoContainer>
-      <Header />
+      <Head>
+        <title>{projeto.title} | Leandrovboas</title>
+        <meta name="description" content={projeto.description} />
+        <meta property="og:image" content={projeto.thumbnail} />
+        <meta property="og:image:secure_url" content={projeto.thumbnail} />
+        <meta name="twitter:image" content={projeto.thumbnail} />
+        <meta name="twitter:image:src" content={projeto.thumbnail} />
+        <meta property="og:description" content={projeto.description} />
+      </Head>
       <BannerProjeto
         title={projeto.title}
         type={projeto.type}
@@ -25,7 +32,6 @@ export default function Projetos({ projeto }: ProjetoProps) {
           <a href="/projetos">Ver projeto online</a>
         </button>
       </main>
-      <Footer />
     </ProjetoContainer>
   );
 }

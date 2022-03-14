@@ -1,10 +1,14 @@
 import { ThemeProvider } from 'styled-components';
-import { DefaultSeo } from 'next-seo';
 import { NextIntlProvider } from 'next-intl';
 import NextApp, { AppContext, AppProps as NextAppProps } from 'next/app';
+import NextNProgress from 'nextjs-progressbar';
 
 import GlobalStyles from '../styles/global';
 import theme from '../styles/theme';
+import ProgressBarReader from '../components/ProgressBarReader';
+import Footer from '../components/Footer';
+import useScrollPosition from '../hooks/useScrollPosition';
+import Header from '../components/Header';
 
 type AppProps = NextAppProps & {
   messages: Record<string, unknown>;
@@ -12,13 +16,24 @@ type AppProps = NextAppProps & {
 };
 
 function MyApp({ Component, pageProps, messages, locale }: AppProps) {
+  const scrollPosition = useScrollPosition();
   return (
     <NextIntlProvider
       locale={locale}
       messages={{ ...messages, ...pageProps.messages }}
     >
       <ThemeProvider theme={theme}>
+        <NextNProgress
+          color={theme.primary}
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={3}
+          showOnShallow
+        />
+        <ProgressBarReader />
+        <Header />
         <Component {...pageProps} />
+        <Footer scrollPosition={scrollPosition} />
         <GlobalStyles />
       </ThemeProvider>
     </NextIntlProvider>

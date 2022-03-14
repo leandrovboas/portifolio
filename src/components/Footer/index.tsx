@@ -7,7 +7,11 @@ import {
 } from 'react-icons/ai';
 import { Button, Container } from './styles';
 
-function Footer() {
+interface FooterProps {
+  scrollPosition: number;
+}
+
+function Footer({ scrollPosition }: FooterProps) {
   function handleRedirect(url: string) {
     window.open(url);
   }
@@ -21,7 +25,7 @@ function Footer() {
 
   return (
     <>
-      <Button>
+      <Button ScrollPosition={scrollPosition}>
         <Container>
           <div className="container">
             <button type="button" onClick={handleScrollTop}>

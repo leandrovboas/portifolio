@@ -1,13 +1,10 @@
-import Header from '../../components/Header';
+import EmConstrucao from '../../components/EmConstrucao';
 import { BlogContainer } from './styles';
 
 export default function Projetos() {
   return (
     <BlogContainer>
-      <Header />
-      <main className="container">
-        <p>oi</p>
-      </main>
+      <main className="container">{/* <EmConstrucao /> */}</main>
     </BlogContainer>
   );
 }
