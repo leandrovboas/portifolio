@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { AiOutlineRightCircle } from 'react-icons/ai';
 import { ProjetoContainer } from './styles';
@@ -10,6 +11,7 @@ interface ProjetoProps {
 }
 
 function ProjetoItem({ title, type, slug, img }: ProjetoProps) {
+  const t = useTranslations('Home.Projetos');
   return (
     <ProjetoContainer imgUrl={img} data-aos="fade-up">
       <section>
@@ -22,7 +24,7 @@ function ProjetoItem({ title, type, slug, img }: ProjetoProps) {
       <button type="button">
         <Link href={`/projetos/${slug}`}>
           <a>
-            Ver Mais <AiOutlineRightCircle />
+            {String(t('detalhes'))} <AiOutlineRightCircle />
           </a>
         </Link>
       </button>

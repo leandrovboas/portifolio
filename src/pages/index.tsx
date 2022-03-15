@@ -1,15 +1,12 @@
 import Aos from 'aos';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
 import Experiencias from '../components/Experiencias';
 import Projetos from '../components/Projetos';
-import Header from '../components/Header';
 import HomeHero from '../components/HomeHero';
 import { HomeContainer } from '../styles/HomeStyles';
 import Conhecimentos from '../components/Conhecimentos';
-import FormContato from '../components/FormContato';
-import Footer from '../components/Footer';
 import 'aos/dist/aos.css';
 import apolloClient from '../apollo/apolloClient';
 import { IProjectResponseCollection, IProjeto } from '../types/Projet';
@@ -46,7 +43,6 @@ export default function Home({ projetos }: HomeProps) {
         <Experiencias />
         <Projetos projetos={projetos} />
         <Conhecimentos />
-        <FormContato />
       </main>
     </HomeContainer>
   );

@@ -1,115 +1,43 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
   background: ${({ theme }) => theme.background};
-  position: relative;
-  width: 500px;
-`;
 
-const animateLight = keyframes`
-    0%,
-    49.99% {
-      background: #00c1c5;
-      box-shadow: 0 0 5px #00c1c5,
-        0 0 10px #00c1c5,
-        0 0 40px #00c1c5;
-    }
-    50%,
-    100% {
-      background: #111;
-      box-shadow: none;
-    }
-`;
-
-export const Loading = styled.div`
-  position: relative;
-  display: flex;
-  background: linear-gradient(#616161 0%, #333 10%, #222);
-  border: 2px solid ${({ theme }) => theme.border};
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
-
-  > ::before {
-    content: '';
+  > h1 {
+    position: relative;
+    font-size: 10vw;
+    color: ${({ theme }) => theme.background};
+    -webkit-text-stroke: 0.3vh ${({ theme }) => theme.backgroundLight};
+    text-transform: uppercase;
+  }
+  > h1::before {
+    content: attr(data-text);
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: 10;
-    pointer-events: none;
+    width: 0;
+    height: 100%;
+    color: ${({ theme }) => theme.primary};
+    -webkit-text-stroke: 0vw ${({ theme }) => theme.backgroundLight};
+    border-right: 2px solid ${({ theme }) => theme.primary};
+    overflow: hidden;
+    animation: animate 6s linear infinite;
   }
 
-  > ::after {
-    content: '';
-    position: absolute;
-    top: 27px;
-    right: 20px;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background: ${({ theme }) => theme.primary};
-    box-shadow: 0 0 5px ${({ theme }) => theme.primary},
-      0 0 10px ${({ theme }) => theme.primary},
-      0 0 40px ${({ theme }) => theme.primary};
-
-    animation: ${animateLight} 1s linear infinite;
-  }
-
-  > span {
-    position: relative;
-    width: 80px;
-    color: #fff;
-    text-align: right;
-    letter-spacing: 1px;
-  }
-`;
-
-export const Percent = styled.div`
-  position: relative;
-  top: 2px;
-  width: calc(100% - 120%);
-  height: 20px;
-  background: #151515;
-  border-radius: 20px;
-  margin: 0 10px;
-  box-shadow: inset 0 0 10px #000;
-  overflow: hidden;
-`;
-
-const animate = keyframes`
-    0% {
-      width: 0;
-      left: 0;
+  @keyframes animate {
+    0%,
+    10%,
+    10% {
+      width: 0%;
     }
-    50% {
+    70%,
+    90% {
       width: 100%;
-      left: 0;
-    }
-    100% {
-      width: 100%;
-      left: 100%;
     }
   }
-`;
-
-export const Progress = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  border-radius: 20px;
-  background: linear-gradient(
-    45deg,
-    ${({ theme }) => theme.primary},
-    ${({ theme }) => theme.secondary}
-  );
-  animation: ${animate} 6s ease-in-out infinite;
 `;

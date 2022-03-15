@@ -1,10 +1,23 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.section``;
+export const Container = styled.section`
+  h1 {
+    margin-top: 1rem;
+    color: ${({ theme }) => theme.primary};
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    margin-left: 4rem;
+    color: ${({ theme }) => theme.secondary};
+    font-weight: 300;
+    font-size: 2rem;
+  }
+`;
 
 export const FormContainer = styled.form`
-  margin-top: 8rem;
+  margin-top: 2rem;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;

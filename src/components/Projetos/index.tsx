@@ -27,7 +27,7 @@ function Projetos({ projetos }: ProjetosProps) {
       </section>
       <button type="button">
         <Link href="/projetos">
-          <a>Ver todos os projetos</a>
+          <a>{String(t('botao'))}</a>
         </Link>
       </button>
     </Container>

@@ -7,6 +7,8 @@ export const ProjetosContainer = styled.div`
   height: 100%;
 
   > main {
+    justify-items: center;
+    align-items: center;
     margin-top: 5rem;
     margin-bottom: 5rem;
     width: 100%;
@@ -14,7 +16,7 @@ export const ProjetosContainer = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1480px) {
       grid-template-columns: 1fr 1fr;
     }
 

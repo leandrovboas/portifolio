@@ -1,26 +1,20 @@
-import SectionTitle from '../SectionTitle';
+import { useTranslations } from 'next-intl';
 import { Container } from './styles';
 import Form from './Form';
 
 function FormContato() {
+  const t = useTranslations('Contato');
   return (
     <Container>
-      <SectionTitle
-        title={
-          <>
-            Precisa dos
-            <br />
-            meus serviços?
-          </>
-        }
-        description={
-          <>
-            Preencha o formulário abaixo que
-            <br />
-            irei retornar em breve
-          </>
-        }
-      />
+      <h1># {String(t('title'))}</h1>
+      <h2>
+        {' '}
+        <>
+          {String(t('sub-title1'))}
+          <br />
+          {String(t('sub-title2'))}
+        </>
+      </h2>
       <Form />
     </Container>
   );

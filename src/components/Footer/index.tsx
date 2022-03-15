@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import {
   AiOutlineTwitter,
   AiOutlineGithub,
@@ -12,6 +13,8 @@ interface FooterProps {
 }
 
 function Footer({ scrollPosition }: FooterProps) {
+  const t = useTranslations('Footer');
+
   function handleRedirect(url: string) {
     window.open(url);
   }
@@ -29,7 +32,7 @@ function Footer({ scrollPosition }: FooterProps) {
         <Container>
           <div className="container">
             <button type="button" onClick={handleScrollTop}>
-              Voltar ao topo
+              {String(t('topo'))}
             </button>
             <section>
               <AiOutlineTwitter

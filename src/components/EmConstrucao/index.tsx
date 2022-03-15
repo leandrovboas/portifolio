@@ -1,14 +1,11 @@
-import { Container, Loading, Percent, Progress } from './styles';
+import { useTranslations } from 'next-intl';
+import { Container } from './styles';
 
 function EmConstrucao() {
+  const t = useTranslations('contrucao');
   return (
     <Container>
-      <Loading>
-        <span>Loading</span>
-        <Percent>
-          <Progress />
-        </Percent>
-      </Loading>
+      <h1 data-text={String(t('Construindo'))}>{String(t('Construindo'))}</h1>
     </Container>
   );
 }

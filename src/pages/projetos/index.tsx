@@ -34,6 +34,8 @@ export default function Projetos({ projetos }: ProjetoProps) {
           <Tilt
             className="tilt"
             options={{ speed: 400, max: 25, glare: true, 'max-glare': 1 }}
+            data-aos="fade-down"
+            data-aos-easing="linear"
           >
             <ProjetoItem
               key={projeto.id}

@@ -25,7 +25,8 @@ const theme = {
   textLight: '#B6E5EB',
   border: '#231f20',
   inputBackground: '#4F4F4F',
-  error: '#d45d5d'
+  error: '#d45d5d',
+  white: '#ffffff'
 };
 
 // #000000

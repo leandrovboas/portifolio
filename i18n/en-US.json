@@ -1,4 +1,10 @@
 {
+  "Header": {
+    "home": "Home",
+    "projetos": "Projects",
+    "blog": "Blog",
+    "contato": "Contact"
+  },
   "Home": {
     "HomeHero": {
       "title": "Hi",
@@ -23,7 +29,27 @@
       "sub-title": "of professional experience"
     },
     "Projetos": {
-      "title": "Last projects"
+      "title": "Last projects",
+      "botao": "See all projects",
+      "detalhes": "See more"
+    },
+    "conhecimentos": "Knowledge"
+  },
+  "Contato": {
+    "title": "Contact me",
+    "sub-title1": "Fill in the form below",
+    "sub-title2": "that I will answer you soon",
+    "Formulario": {
+      "nome": "Name",
+      "email": "E-mail",
+      "mensagem": "Message",
+      "enviar": "Send"
     }
+  },
+  "contrucao": {
+    "Construindo": "Building..."
+  },
+  "Footer": {
+    "topo": "Back to the top"
   }
 }

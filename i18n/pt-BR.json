@@ -1,4 +1,10 @@
 {
+  "Header": {
+    "home": "Home",
+    "projetos": "Projetos",
+    "blog": "Blog",
+    "contato": "Contato"
+  },
   "Home": {
     "HomeHero": {
       "title": "Olá",
@@ -23,7 +29,27 @@
       "sub-title": "de experiência"
     },
     "Projetos": {
-      "title": "Últimos Projetos"
+      "title": "Últimos Projetos",
+      "botao": "Ver todos os projetos",
+      "detalhes": "Veja mais"
+    },
+    "conhecimentos": "Conhecimentos"
+  },
+  "Contato": {
+    "title": "Entre em contato comigo",
+    "sub-title1": "Preencha o formulário abaixo",
+    "sub-title2": "que eu vou te responder em breve",
+    "Formulario": {
+      "nome": "Nome",
+      "email": "E-mail",
+      "mensagem": "Mensagem",
+      "enviar": "Enviar"
     }
+  },
+  "contrucao": {
+    "Construindo": "Construindo..."
+  },
+  "Footer": {
+    "topo": "Voltar ao topo"
   }
 }

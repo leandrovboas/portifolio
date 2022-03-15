@@ -13,6 +13,7 @@ export const Container = styled.div`
   }
 
   h2 {
+    margin-left: 4rem;
     color: ${({ theme }) => theme.secondary};
     font-weight: 300;
     font-size: 3.5rem;

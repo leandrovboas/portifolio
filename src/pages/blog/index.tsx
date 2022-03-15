@@ -4,7 +4,7 @@ import { BlogContainer } from './styles';
 export default function Projetos() {
   return (
     <BlogContainer>
-      <main className="container">{/* <EmConstrucao /> */}</main>
+      <EmConstrucao />
     </BlogContainer>
   );
 }
