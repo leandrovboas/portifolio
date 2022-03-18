@@ -1,5 +1,12 @@
 const withImages = require('next-images');
 
 module.exports = withImages({
-  esModule: true
+  pageExtensions: ['tsx'],
+  esModule: true,
+  compress: false,
+  trailingSlash: true,
+  i18n: {
+    locales: ['pt-BR', 'en-US'],
+    defaultLocale: 'pt-BR'
+  }
 });
