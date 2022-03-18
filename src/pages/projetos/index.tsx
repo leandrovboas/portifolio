@@ -13,7 +13,9 @@ interface ProjetoProps {
 
 export default function Projetos({ projetos }: ProjetoProps) {
   return (
-    <ProjetosContainer>
+    <ProjetosContainer
+      hasProject={projetos === undefined || projetos.length === 0}
+    >
       <Head>
         <title>Projetos | Leandrovboas</title>
         <meta
@@ -29,6 +31,7 @@ export default function Projetos({ projetos }: ProjetoProps) {
           content="Sou um desenvolvedor de software em diversas linguagens"
         />
       </Head>
+      <span> Tivemos um problema para carregar as informações</span>
       <main className="container">
         {projetos?.map(projeto => (
           <Tilt
@@ -59,10 +62,10 @@ export async function getServerSideProps() {
     const projetos = data.projects.data.map(projeto => ({
       id: projeto.attributes.Project.id,
       slug: projeto.attributes.slug,
-      title: projeto.attributes.Project.Title,
-      type: projeto.attributes.Project.SubTitle,
-      description: projeto.attributes.Project.Content,
-      thumbnail: `${process.env.NEXT_PUBLIC_STRAPI}${projeto.attributes.Project.Banner.data.attributes.url}`
+      title: projeto.attributes.Project.title,
+      type: projeto.attributes.Project.subtitle,
+      description: projeto.attributes.Project.content,
+      thumbnail: projeto.attributes.Project.linkImagem
     }));
 
     return {

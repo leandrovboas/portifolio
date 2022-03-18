@@ -2,22 +2,17 @@ import { gql } from '@apollo/client';
 
 export const projetosQuery = gql`
   {
-    projects(sort: "id:desc") {
+    projects(sort: "Date:desc") {
       data {
         attributes {
           slug
+          Date
           Project {
             id
-            Title
-            SubTitle
-            Content
-            Banner {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
+            title
+            subtitle
+            content
+            linkImagem
           }
         }
       }

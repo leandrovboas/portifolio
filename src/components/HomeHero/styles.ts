@@ -90,7 +90,7 @@ export const CodeItem = styled.pre`
   padding: 2rem;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 300;
-  color: #fff;
+  color: ${({ theme }) => theme.white};
   width: 24rem;
   align-self: flex-start;
   transition: 1s !important;

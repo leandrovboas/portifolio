@@ -48,6 +48,9 @@ export const ConhecimentoContainer = styled.div`
       color: ${({ theme }) => theme.primary};
       transform: scale(0.95);
     }
+    p {
+      font-weight: 500;
+    }
   }
 
   @media (max-width: 1000px) {

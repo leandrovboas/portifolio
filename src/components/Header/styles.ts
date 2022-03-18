@@ -29,17 +29,38 @@ export const Container = styled.header`
   }
 
   > button {
-    background: ${({ theme }) => theme.background};
     display: flex;
     position: absolute;
     right: 0.8rem;
     padding: 0.6rem 2rem;
+    border: 4px solid transparent;
+    background: ${({ theme }) => theme.background};
     border-radius: 2rem;
-    border: 0.2rem solid ${({ theme }) => theme.primary};
-    transition: 0.5s;
-    &:hover {
-      background: ${({ theme }) => theme.secondary};
+    background-clip: padding-box;
+    padding: 10px;
+
+    ::after {
+      position: absolute;
+      top: -4px;
+      bottom: -4px;
+      left: -4px;
+      right: -4px;
+      background: linear-gradient(
+        45deg,
+        ${({ theme }) => theme.primary} 40%,
+        ${({ theme }) => theme.secondary} 70%
+      );
+      content: '';
+      z-index: -1;
+      border-radius: 2rem;
     }
+
+    &:hover {
+      box-shadow: 0 3px 9px black,
+        inset 0 0 9px ${({ theme }) => theme.secondary},
+        inset 0 0 9px ${({ theme }) => theme.primary};
+    }
+
     a {
       text-transform: uppercase;
       color: ${({ theme }) => theme.white};

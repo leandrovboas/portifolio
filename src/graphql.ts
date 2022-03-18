@@ -1,16 +1,9 @@
 import { gql } from '@apollo/client';
-
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -18,6 +11,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
+  Date: any;
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: any;
   /** The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf). */
@@ -51,19 +46,42 @@ export type BooleanFilterInput = {
 
 export type ComponentPageProject = {
   __typename?: 'ComponentPageProject';
-  Banner: UploadFileEntityResponse;
-  Content: Scalars['String'];
-  SubTitle: Scalars['String'];
-  Title: Scalars['String'];
+  content: Scalars['String'];
   id: Scalars['ID'];
+  linkImagem: Scalars['String'];
+  subtitle?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
 };
 
 export type ComponentPageProjectInput = {
-  Banner?: InputMaybe<Scalars['ID']>;
-  Content?: InputMaybe<Scalars['String']>;
-  SubTitle?: InputMaybe<Scalars['String']>;
-  Title?: InputMaybe<Scalars['String']>;
+  content?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
+  linkImagem?: InputMaybe<Scalars['String']>;
+  subtitle?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type DateFilterInput = {
+  and?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  between?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  contains?: InputMaybe<Scalars['Date']>;
+  containsi?: InputMaybe<Scalars['Date']>;
+  endsWith?: InputMaybe<Scalars['Date']>;
+  eq?: InputMaybe<Scalars['Date']>;
+  gt?: InputMaybe<Scalars['Date']>;
+  gte?: InputMaybe<Scalars['Date']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  lt?: InputMaybe<Scalars['Date']>;
+  lte?: InputMaybe<Scalars['Date']>;
+  ne?: InputMaybe<Scalars['Date']>;
+  not?: InputMaybe<DateFilterInput>;
+  notContains?: InputMaybe<Scalars['Date']>;
+  notContainsi?: InputMaybe<Scalars['Date']>;
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  notNull?: InputMaybe<Scalars['Boolean']>;
+  null?: InputMaybe<Scalars['Boolean']>;
+  or?: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  startsWith?: InputMaybe<Scalars['Date']>;
 };
 
 export type DateTimeFilterInput = {
@@ -118,14 +136,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph =
-  | ComponentPageProject
-  | I18NLocale
-  | Project
-  | UploadFile
-  | UsersPermissionsPermission
-  | UsersPermissionsRole
-  | UsersPermissionsUser;
+export type GenericMorph = ComponentPageProject | I18NLocale | Project | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -267,49 +278,61 @@ export type Mutation = {
   upload: UploadFileEntityResponse;
 };
 
+
 export type MutationCreateProjectArgs = {
   data: ProjectInput;
 };
+
 
 export type MutationCreateUploadFileArgs = {
   data: UploadFileInput;
 };
 
+
 export type MutationCreateUsersPermissionsRoleArgs = {
   data: UsersPermissionsRoleInput;
 };
+
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
 };
 
+
 export type MutationDeleteProjectArgs = {
   id: Scalars['ID'];
 };
+
 
 export type MutationDeleteUploadFileArgs = {
   id: Scalars['ID'];
 };
 
+
 export type MutationDeleteUsersPermissionsRoleArgs = {
   id: Scalars['ID'];
 };
+
 
 export type MutationDeleteUsersPermissionsUserArgs = {
   id: Scalars['ID'];
 };
 
+
 export type MutationEmailConfirmationArgs = {
   confirmation: Scalars['String'];
 };
+
 
 export type MutationForgotPasswordArgs = {
   email: Scalars['String'];
 };
 
+
 export type MutationLoginArgs = {
   input: UsersPermissionsLoginInput;
 };
+
 
 export type MutationMultipleUploadArgs = {
   field?: InputMaybe<Scalars['String']>;
@@ -318,13 +341,16 @@ export type MutationMultipleUploadArgs = {
   refId?: InputMaybe<Scalars['ID']>;
 };
 
+
 export type MutationRegisterArgs = {
   input: UsersPermissionsRegisterInput;
 };
 
+
 export type MutationRemoveFileArgs = {
   id: Scalars['ID'];
 };
+
 
 export type MutationResetPasswordArgs = {
   code: Scalars['String'];
@@ -332,30 +358,36 @@ export type MutationResetPasswordArgs = {
   passwordConfirmation: Scalars['String'];
 };
 
+
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID'];
   info?: InputMaybe<FileInfoInput>;
 };
+
 
 export type MutationUpdateProjectArgs = {
   data: ProjectInput;
   id: Scalars['ID'];
 };
 
+
 export type MutationUpdateUploadFileArgs = {
   data: UploadFileInput;
   id: Scalars['ID'];
 };
+
 
 export type MutationUpdateUsersPermissionsRoleArgs = {
   data: UsersPermissionsRoleInput;
   id: Scalars['ID'];
 };
 
+
 export type MutationUpdateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
   id: Scalars['ID'];
 };
+
 
 export type MutationUploadArgs = {
   field?: InputMaybe<Scalars['String']>;
@@ -382,6 +414,7 @@ export type PaginationArg = {
 
 export type Project = {
   __typename?: 'Project';
+  Date: Scalars['Date'];
   Project: ComponentPageProject;
   createdAt?: Maybe<Scalars['DateTime']>;
   publishedAt?: Maybe<Scalars['DateTime']>;
@@ -397,7 +430,7 @@ export type ProjectEntity = {
 
 export type ProjectEntityResponse = {
   __typename?: 'ProjectEntityResponse';
-  data?: Array<ProjectEntity>;
+  data?: Maybe<ProjectEntity>;
 };
 
 export type ProjectEntityResponseCollection = {
@@ -407,6 +440,7 @@ export type ProjectEntityResponseCollection = {
 };
 
 export type ProjectFiltersInput = {
+  Date?: InputMaybe<DateFilterInput>;
   and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
@@ -418,6 +452,7 @@ export type ProjectFiltersInput = {
 };
 
 export type ProjectInput = {
+  Date?: InputMaybe<Scalars['Date']>;
   Project?: InputMaybe<ComponentPageProjectInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   slug?: InputMaybe<Scalars['String']>;
@@ -443,9 +478,11 @@ export type Query = {
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
 };
 
+
 export type QueryI18NLocaleArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
+
 
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
@@ -453,9 +490,11 @@ export type QueryI18NLocalesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+
 export type QueryProjectArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
+
 
 export type QueryProjectsArgs = {
   filters?: InputMaybe<ProjectFiltersInput>;
@@ -464,9 +503,11 @@ export type QueryProjectsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+
 export type QueryUploadFileArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
+
 
 export type QueryUploadFilesArgs = {
   filters?: InputMaybe<UploadFileFiltersInput>;
@@ -474,9 +515,11 @@ export type QueryUploadFilesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+
 export type QueryUsersPermissionsRoleArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
+
 
 export type QueryUsersPermissionsRolesArgs = {
   filters?: InputMaybe<UsersPermissionsRoleFiltersInput>;
@@ -484,9 +527,11 @@ export type QueryUsersPermissionsRolesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+
 export type QueryUsersPermissionsUserArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
+
 
 export type QueryUsersPermissionsUsersArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;
@@ -692,11 +737,13 @@ export type UsersPermissionsRole = {
   users?: Maybe<UsersPermissionsUserRelationResponseCollection>;
 };
 
+
 export type UsersPermissionsRolePermissionsArgs = {
   filters?: InputMaybe<UsersPermissionsPermissionFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
+
 
 export type UsersPermissionsRoleUsersArgs = {
   filters?: InputMaybe<UsersPermissionsUserFiltersInput>;

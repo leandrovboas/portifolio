@@ -53,13 +53,13 @@ export const getStaticProps: GetStaticProps = async () => {
     const { data } = await apolloClient.query<IProjectResponseCollection>({
       query: projetosQuery
     });
-    const projetos = data.projects.data.map(projeto => ({
+    const projetos = data.projects.data?.map(projeto => ({
       id: projeto.attributes.Project.id,
       slug: projeto.attributes.slug,
-      title: projeto.attributes.Project.Title,
-      type: projeto.attributes.Project.SubTitle,
-      description: projeto.attributes.Project.Content,
-      thumbnail: `${process.env.NEXT_PUBLIC_STRAPI}${projeto.attributes.Project.Banner.data.attributes.url}`
+      title: projeto.attributes.Project.title,
+      type: projeto.attributes.Project.subtitle,
+      description: projeto.attributes.Project.content,
+      thumbnail: projeto.attributes.Project.linkImagem
     }));
 
     return {

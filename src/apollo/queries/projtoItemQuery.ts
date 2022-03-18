@@ -6,18 +6,13 @@ export const projetoItemQuery = gql`
       data {
         attributes {
           slug
+          Date
           Project {
             id
-            Title
-            SubTitle
-            Content
-            Banner {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
+            title
+            subtitle
+            content
+            linkImagem
           }
         }
       }

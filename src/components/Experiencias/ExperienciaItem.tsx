@@ -1,12 +1,18 @@
 import { ItemContainer } from './styles';
 
-function ExperienciaItem() {
+interface ExperienciaProps {
+  year: string;
+  title: string;
+  description: string;
+}
+
+function ExperienciaItem({ year, title, description }: ExperienciaProps) {
   return (
     <ItemContainer data-aos="fade-up">
       <div>
-        <h1>2021</h1>
-        <h2>Dev Full Stack</h2>
-        <p>Teste</p>
+        <h1>{year}</h1>
+        <h2>{title}</h2>
+        <p>{description}</p>
       </div>
     </ItemContainer>
   );

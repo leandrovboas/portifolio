@@ -11,5 +11,6 @@ export const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8rem;
+    padding-bottom: 3rem;
   }
 `;

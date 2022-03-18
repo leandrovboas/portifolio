@@ -20,11 +20,19 @@ export const Container = styled.div<ContainerProps>`
     h1 {
       color: ${({ theme }) => theme.primary};
       font-size: 3rem;
+      background: ${({ theme }) => theme.background};
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 2rem 2rem 0 0;
     }
     h2 {
       color: ${({ theme }) => theme.secondary};
       font-weight: 300;
       font-size: 2rem;
+      background: ${({ theme }) => theme.background};
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 0 0 2rem 2rem;
     }
     > div.overlay {
       position: absolute;

@@ -6,12 +6,14 @@ export const ProjetoContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding-bottom: 3rem;
+
   > main {
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 100%;
     padding: 0 5rem;
-    p {
+    div {
       color: ${({ theme }) => theme.textLight};
       font-size: 1.5rem;
       font-weight: 300;
@@ -28,15 +30,32 @@ export const ProjetoContainer = styled.div`
         background: ${({ theme }) => darken(0.05, theme.primary)};
       }
       a {
-        color: #fff;
+        color: ${({ theme }) => theme.white};
         text-transform: uppercase;
         font-size: 1.5rem;
         font-weight: 300;
+        text-decoration: none;
       }
+    }
+    p {
+      line-height: 2.5rem;
+      text-indent: 3rem;
+    }
+
+    h3 {
+      padding-top: 1rem;
+    }
+
+    a {
+      color: ${({ theme }) => theme.tertiary};
+
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-decoration: underline;
     }
     @media (max-width: 700px) {
       padding: 0 2.5rem;
-      p {
+      div {
         font-size: 1rem;
       }
       button {

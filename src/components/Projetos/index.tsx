@@ -15,7 +15,7 @@ function Projetos({ projetos }: ProjetosProps) {
     <Container>
       <SectionTitle title={String(t('title'))} />
       <section>
-        {projetos.slice(0.3).map(projeto => (
+        {projetos?.slice(0, 3).map(projeto => (
           <ProjtoItem
             key={projeto.id}
             img={projeto.thumbnail}

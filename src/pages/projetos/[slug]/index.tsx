@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import matter from 'gray-matter';
+import md from 'markdown-it';
 import apolloClient from '../../../apollo/apolloClient';
 import { projetoItemQuery } from '../../../apollo/queries/projtoItemQuery';
 import BannerProjeto from '../../../components/BannerProjeto';
@@ -27,9 +29,11 @@ export default function Projetos({ projeto }: ProjetoProps) {
         imgUrl={projeto.thumbnail}
       />
       <main>
-        <p>{projeto.description}</p>
+        <div
+          dangerouslySetInnerHTML={{ __html: md().render(projeto.description) }}
+        />
         <button type="button">
-          <a href="/projetos">Ver projeto online</a>
+          <a href="/projetos">Ver todos projeto</a>
         </button>
       </main>
     </ProjetoContainer>
@@ -48,10 +52,10 @@ export async function getServerSideProps(context) {
     const projeto: IProjeto = {
       id: data.projects.data[0].attributes.Project.id,
       slug: data.projects.data[0].attributes.slug,
-      title: data.projects.data[0].attributes.Project.Title,
-      type: data.projects.data[0].attributes.Project.SubTitle,
-      description: data.projects.data[0].attributes.Project.Content,
-      thumbnail: `${process.env.NEXT_PUBLIC_STRAPI}${data.projects.data[0].attributes.Project.Banner.data.attributes.url}`
+      title: data.projects.data[0].attributes.Project.title,
+      type: data.projects.data[0].attributes.Project.subtitle,
+      description: data.projects.data[0].attributes.Project.content,
+      thumbnail: data.projects.data[0].attributes.Project.linkImagem
     };
 
     return {
