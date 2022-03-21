@@ -1,12 +1,12 @@
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
-import picture from '../../assets/leandro.webp';
 
 function HomeHero() {
   const t = useTranslations('Home.HomeHero');
   return (
     <Container data-aos="fade-up">
-      <img src={picture} alt="Minha Foto" />
+      <Image src="/leandro.png" alt="Minha Foto" />
       <div>
         <TextContainer>
           <h1>{String(t('title'))}</h1>
