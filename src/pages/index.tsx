@@ -8,9 +8,8 @@ import HomeHero from '../components/HomeHero';
 import { HomeContainer } from '../styles/HomeStyles';
 import Conhecimentos from '../components/Conhecimentos';
 import 'aos/dist/aos.css';
-import apolloClient from '../apollo/apolloClient';
-import { IProjectResponseCollection, IProjeto } from '../types/Projet';
-import { projetosQuery } from '../apollo/queries/projetosQuery';
+import { IProjeto } from '../types/Projet';
+import { ProjetosService } from '../services/ProjetosService';
 
 interface HomeProps {
   projetos: IProjeto[];
@@ -49,27 +48,9 @@ export default function Home({ projetos }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { data } = await apolloClient.query<IProjectResponseCollection>({
-      query: projetosQuery
-    });
-    const projetos = data.projects.data?.map(projeto => ({
-      id: projeto.attributes.Project.id,
-      slug: projeto.attributes.slug,
-      title: projeto.attributes.Project.title,
-      type: projeto.attributes.Project.subtitle,
-      description: projeto.attributes.Project.content,
-      thumbnail: projeto.attributes.Project.linkImagem
-    }));
-
-    return {
-      props: { projetos }
-    };
-  } catch (err) {
-    console.error('Error fetching data apolloClient projects', err);
-
-    return {
-      props: {}
-    };
-  }
+  const projetos = await ProjetosService.get();
+  return {
+    props: { projetos },
+    revalidate: 86400
+  };
 };

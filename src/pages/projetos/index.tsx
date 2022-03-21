@@ -1,11 +1,10 @@
 import React from 'react';
 import Tilt from 'react-vanilla-tilt';
 import Head from 'next/head';
-import apolloClient from '../../apollo/apolloClient';
-import { projetosQuery } from '../../apollo/queries/projetosQuery';
 import ProjetoItem from '../../components/ProjetoItem';
 import { ProjetosContainer } from './styles';
-import { IProjeto, IProjectResponseCollection } from '../../types/Projet';
+import { IProjeto } from '../../types/Projet';
+import { ProjetosService } from '../../services/ProjetosService';
 
 interface ProjetoProps {
   projetos: IProjeto[];
@@ -55,27 +54,8 @@ export default function Projetos({ projetos }: ProjetoProps) {
 }
 
 export async function getServerSideProps() {
-  try {
-    const { data } = await apolloClient.query<IProjectResponseCollection>({
-      query: projetosQuery
-    });
-    const projetos = data.projects.data.map(projeto => ({
-      id: projeto.attributes.Project.id,
-      slug: projeto.attributes.slug,
-      title: projeto.attributes.Project.title,
-      type: projeto.attributes.Project.subtitle,
-      description: projeto.attributes.Project.content,
-      thumbnail: projeto.attributes.Project.linkImagem
-    }));
-
-    return {
-      props: { projetos }
-    };
-  } catch (err) {
-    console.error('Error fetching data apolloClient projects', err);
-
-    return {
-      props: {}
-    };
-  }
+  const projetos = await ProjetosService.get();
+  return {
+    props: { projetos }
+  };
 }
