@@ -50,6 +50,7 @@ export default function Home({ projetos }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const projetos = await ProjetosService.get();
   return {
-    props: { projetos }
+    props: { projetos },
+    revalidate: 86400
   };
 };
