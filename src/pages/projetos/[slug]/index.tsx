@@ -1,11 +1,9 @@
 import Head from 'next/head';
-import matter from 'gray-matter';
 import md from 'markdown-it';
-import apolloClient from '../../../apollo/apolloClient';
-import { projetoItemQuery } from '../../../apollo/queries/projtoItemQuery';
 import BannerProjeto from '../../../components/BannerProjeto';
-import { IProjectResponse, IProjeto } from '../../../types/Projet';
+import { IProjeto } from '../../../types/Projet';
 import { ProjetoContainer } from './styles';
+import { ProjetosService } from '../../../services/ProjetosService';
 
 interface ProjetoProps {
   projeto: IProjeto;
@@ -41,31 +39,8 @@ export default function Projetos({ projeto }: ProjetoProps) {
 }
 
 export async function getServerSideProps(context) {
-  try {
-    const { data } = await apolloClient.query<IProjectResponse>({
-      query: projetoItemQuery,
-      variables: {
-        slug: context.query.slug
-      }
-    });
-
-    const projeto: IProjeto = {
-      id: data.projects.data[0].attributes.Project.id,
-      slug: data.projects.data[0].attributes.slug,
-      title: data.projects.data[0].attributes.Project.title,
-      type: data.projects.data[0].attributes.Project.subtitle,
-      description: data.projects.data[0].attributes.Project.content,
-      thumbnail: data.projects.data[0].attributes.Project.linkImagem
-    };
-
-    return {
-      props: { projeto }
-    };
-  } catch (err) {
-    console.error('Error fetching project', err);
-
-    return {
-      props: {}
-    };
-  }
+  const projeto = await ProjetosService.find(context.query.slug);
+  return {
+    props: { projeto }
+  };
 }
