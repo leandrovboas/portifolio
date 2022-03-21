@@ -17,8 +17,8 @@ function Experiencias() {
         <ExperienciaItem
           year="atual"
           title="Dev Full Stack"
-          description="Desenvolvimento full stack usando tecnologias como C#, Nodejs,
-          Angular, React, Javascript, Typescript, HTML5, docker, Azure, entre outras e muito, mais muito teste"
+          description="Desenvolvimento full stack (C#, Nodejs,
+          Angular, React, Javascript, Typescript, HTML5, docker, Azure, entre outras e muito teste)"
         />
         <ExperienciaItem
           year="2018"

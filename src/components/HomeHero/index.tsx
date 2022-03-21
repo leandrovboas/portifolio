@@ -1,12 +1,14 @@
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
 
 function HomeHero() {
   const t = useTranslations('Home.HomeHero');
   return (
     <Container data-aos="fade-up">
-      <Image src="/leandro.png" alt="Minha Foto" />
+      <img
+        src="https://raw.githubusercontent.com/leandrovboas/portifolio-imagens/master/leandro.png"
+        alt="Minha Foto"
+      />
       <div>
         <TextContainer>
           <h1>{String(t('title'))}</h1>
