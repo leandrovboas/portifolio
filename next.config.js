@@ -8,5 +8,17 @@ module.exports = withImages({
   i18n: {
     locales: ['pt-BR', 'en-US'],
     defaultLocale: 'pt-BR'
-  }
+  },
+  beforeFiles: [
+    {
+      source: '/projetos',
+      has: [
+        {
+          type: 'host',
+          value: 'projetos.leandrovboas.com.br'
+        }
+      ],
+      destination: '/projetos'
+    }
+  ]
 });

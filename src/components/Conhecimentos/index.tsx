@@ -1,7 +1,7 @@
 import { AiFillHtml5 } from 'react-icons/ai';
 import { IoLogoJavascript, IoLogoNodejs, IoLogoPython } from 'react-icons/io';
 import { FaReact } from 'react-icons/fa';
-import { SiCsharp } from 'react-icons/si';
+import { SiCsharp, SiNestjs, SiNextdotjs } from 'react-icons/si';
 import { useTranslations } from 'next-intl';
 import SectionTitle from '../SectionTitle';
 import { Container } from './styles';
@@ -15,10 +15,12 @@ function Conhecimentos() {
       <section>
         <ConhecimentoItem title="CSharp" icon={<SiCsharp />} />
         <ConhecimentoItem title="Nodejs" icon={<IoLogoNodejs />} />
-        <ConhecimentoItem title="Python" icon={<IoLogoPython />} />
+        <ConhecimentoItem title="Nextjs" icon={<SiNextdotjs />} />
+        <ConhecimentoItem title="NestJs" icon={<SiNestjs />} />
         <ConhecimentoItem title="React" icon={<FaReact />} />
         <ConhecimentoItem title="HTML" icon={<AiFillHtml5 />} />
         <ConhecimentoItem title="JavaScript" icon={<IoLogoJavascript />} />
+        <ConhecimentoItem title="Python" icon={<IoLogoPython />} />
       </section>
     </Container>
   );
