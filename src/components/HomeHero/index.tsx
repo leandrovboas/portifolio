@@ -6,7 +6,7 @@ function HomeHero() {
   return (
     <Container data-aos="fade-up">
       <img
-        src="https://raw.githubusercontent.com/leandrovboas/portifolio-imagens/master/leandro.png"
+        src="/leandro.png"
         alt="Minha Foto"
       />
       <div>
