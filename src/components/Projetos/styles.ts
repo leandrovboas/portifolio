@@ -104,7 +104,7 @@ export const ProjetoContainer = styled.div<ProjetoProps>`
         text-shadow: -4px 5px 22px #11172b;
       }
       h2 {
-        color: ${({ theme }) => theme.secondary};
+        color: ${({ theme }) => theme.tertiary};
         font-size: 2rem;
         font-weight: 300;
         text-shadow: -4px 5px 22px #11172b;

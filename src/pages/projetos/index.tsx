@@ -5,16 +5,16 @@ import ProjetoItem from '../../components/ProjetoItem';
 import { ProjetosContainer } from './styles';
 import { IProjeto } from '../../types/Projet';
 import { ProjetosService } from '../../services/ProjetosService';
+import ErroInterno from '../../components/ErroInterno';
 
 interface ProjetoProps {
   projetos: IProjeto[];
 }
 
 export default function Projetos({ projetos }: ProjetoProps) {
+  const hasProject = projetos.length === 0;
   return (
-    <ProjetosContainer
-      hasProject={projetos === undefined || projetos.length === 0}
-    >
+    <ProjetosContainer>
       <Head>
         <title>Projetos | Leandrovboas</title>
         <meta
@@ -30,25 +30,27 @@ export default function Projetos({ projetos }: ProjetoProps) {
           content="Sou um desenvolvedor de software em diversas linguagens"
         />
       </Head>
-      <span> Tivemos um problema para carregar as informações</span>
-      <main className="container">
-        {projetos?.map(projeto => (
-          <Tilt
-            className="tilt"
-            options={{ speed: 400, max: 25, glare: true, 'max-glare': 1 }}
-            data-aos="fade-down"
-            data-aos-easing="linear"
-          >
-            <ProjetoItem
-              key={projeto.id}
-              title={projeto.title}
-              type={projeto.type}
-              slug={projeto.slug}
-              imgUrl={projeto.thumbnail}
-            />
-          </Tilt>
-        ))}
-      </main>
+      {hasProject && <ErroInterno />}
+      {!hasProject && (
+        <main className="container">
+          {projetos?.map(projeto => (
+            <Tilt
+              className="tilt"
+              options={{ speed: 400, max: 25, glare: true, 'max-glare': 1 }}
+              data-aos="fade-down"
+              data-aos-easing="linear"
+            >
+              <ProjetoItem
+                key={projeto.id}
+                title={projeto.title}
+                type={projeto.type}
+                slug={projeto.slug}
+                imgUrl={projeto.thumbnail}
+              />
+            </Tilt>
+          ))}
+        </main>
+      )}
     </ProjetosContainer>
   );
 }

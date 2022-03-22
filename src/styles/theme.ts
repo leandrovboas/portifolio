@@ -26,7 +26,8 @@ const theme = {
   border: '#231f20',
   inputBackground: '#4F4F4F',
   error: '#d45d5d',
-  white: '#ffffff'
+  white: '#ffffff',
+  black: '#000000'
 };
 
 // #000000

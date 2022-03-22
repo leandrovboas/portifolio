@@ -5,10 +5,7 @@ function HomeHero() {
   const t = useTranslations('Home.HomeHero');
   return (
     <Container data-aos="fade-up">
-      <img
-        src="/leandro.png"
-        alt="Minha Foto"
-      />
+      <img src="/leandro.png" alt="Minha Foto" />
       <div>
         <TextContainer>
           <h1>{String(t('title'))}</h1>

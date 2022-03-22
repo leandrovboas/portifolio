@@ -23,19 +23,17 @@ function Experiencias() {
         <ExperienciaItem
           year="2018"
           title="Dev Stack Microsoft"
-          description="Desenvolvimento de serviço WebAPI com .NET CORE e desenvolvimento frontend
-          com angular"
+          description="WebAPI com .NET CORE e Angular"
         />
         <ExperienciaItem
           year="2015"
           title="Dev Stack Microsoft"
-          description="Desenvolvimento de WebServices e serviços WCF usando o framework
-          .net 4.5"
+          description="WebServices, WCF e framework .net 4.5"
         />
         <ExperienciaItem
           year="2011"
           title="Dev Stack Microsoft"
-          description="Desenvolvimento web usando ASP.NET"
+          description="ASP.NET"
         />
       </section>
     </Container>
