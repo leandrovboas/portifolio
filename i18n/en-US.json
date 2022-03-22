@@ -51,5 +51,8 @@
   },
   "Footer": {
     "topo": "Back to the top"
+  },
+  "ErroInterno": {
+    "erroInterno": "We had a problem loading the information"
   }
 }

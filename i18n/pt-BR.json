@@ -51,5 +51,8 @@
   },
   "Footer": {
     "topo": "Voltar ao topo"
+  },
+  "ErroInterno": {
+    "erroInterno": "Tivemos um problema para carregar as informações"
   }
 }
