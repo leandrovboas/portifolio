@@ -1,6 +1,6 @@
 import React from 'react';
-import Tilt from 'react-vanilla-tilt';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
 import ProjetoItem from '../../components/ProjetoItem';
 import { ProjetosContainer } from './styles';
 import { IProjeto } from '../../types/Projet';
@@ -34,20 +34,13 @@ export default function Projetos({ projetos }: ProjetoProps) {
       {!hasProject && (
         <main className="container">
           {projetos?.map(projeto => (
-            <Tilt
-              className="tilt"
-              options={{ speed: 400, max: 25, glare: true, 'max-glare': 1 }}
-              data-aos="fade-down"
-              data-aos-easing="linear"
-            >
-              <ProjetoItem
-                key={projeto.id}
-                title={projeto.title}
-                type={projeto.type}
-                slug={projeto.slug}
-                imgUrl={projeto.thumbnail}
-              />
-            </Tilt>
+            <ProjetoItem
+              key={projeto.id}
+              title={projeto.title}
+              type={projeto.type}
+              slug={projeto.slug}
+              imgUrl={projeto.thumbnail}
+            />
           ))}
         </main>
       )}
@@ -55,9 +48,9 @@ export default function Projetos({ projetos }: ProjetoProps) {
   );
 }
 
-export async function getServerSideProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const projetos = await ProjetosService.get();
   return {
     props: { projetos }
   };
-}
+};
