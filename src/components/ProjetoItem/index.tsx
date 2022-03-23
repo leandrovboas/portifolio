@@ -10,7 +10,7 @@ interface ProjetoItemProps {
 
 function ProjetoItem({ title, type, imgUrl, slug }: ProjetoItemProps) {
   return (
-    <Container imgUrl={imgUrl}>
+    <Container imgUrl={imgUrl} data-aos="fade-down" data-aos-easing="linear">
       <Link href={`/projetos/${slug}`}>
         <a>
           <div className="overlay" />

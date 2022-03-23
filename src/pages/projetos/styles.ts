@@ -8,30 +8,20 @@ export const ProjetosContainer = styled.div`
   padding-top: 1rem;
 
   > main {
-    display: grid;
-    justify-items: center;
-    align-items: center;
     margin-top: 5rem;
     margin-bottom: 5rem;
     width: 100%;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     padding-bottom: 3rem;
 
-    @media (max-width: 1480px) {
+    @media (max-width: 1000px) {
       grid-template-columns: 1fr 1fr;
     }
 
-    @media (max-width: 550) {
+    @media (max-width: 550px) {
       grid-template-columns: 1fr;
-    }
-
-    div.tilt {
-      line-height: 1.6 !important;
-      width: 300px !important;
-      border-radius: 10px !important;
-      padding: 0 !important;
-      margin: 0 !important;
     }
   }
 `;
