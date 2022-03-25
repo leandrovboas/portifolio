@@ -6,8 +6,10 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+  border-top: 3px solid ${({ theme }) => theme.primary};
 
   h1 {
+    padding-top: 5rem;
     color: ${({ theme }) => theme.primary};
     font-size: 4.5rem;
   }
@@ -36,6 +38,7 @@ export const Container = styled.div`
 
     h2 {
       font-size: 1.2rem;
+      margin-left: 2rem;
     }
   }
 `;

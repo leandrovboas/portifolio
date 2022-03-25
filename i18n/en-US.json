@@ -33,7 +33,11 @@
       "botao": "See all projects",
       "detalhes": "See more"
     },
-    "conhecimentos": "Knowledge"
+    "conhecimentos": {
+      "title": "Technologies",
+      "subtitle": "Knowledge"
+    },
+    "certificacoes": "Certificações"
   },
   "Contato": {
     "title": "Contact me",
