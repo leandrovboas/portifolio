@@ -10,7 +10,7 @@ import Conhecimentos from '../components/Conhecimentos';
 import 'aos/dist/aos.css';
 import { IProjeto } from '../types/Projet';
 import { ProjetosService } from '../services/ProjetosService';
-import Certificacoes from '../components/Certificacoes';
+// import Certificacoes from '../components/Certificacoes';
 
 interface HomeProps {
   projetos: IProjeto[];
