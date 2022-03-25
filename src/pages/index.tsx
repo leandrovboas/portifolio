@@ -10,6 +10,7 @@ import Conhecimentos from '../components/Conhecimentos';
 import 'aos/dist/aos.css';
 import { IProjeto } from '../types/Projet';
 import { ProjetosService } from '../services/ProjetosService';
+import Certificacoes from '../components/Certificacoes';
 
 interface HomeProps {
   projetos: IProjeto[];
@@ -42,6 +43,7 @@ export default function Home({ projetos }: HomeProps) {
         <Experiencias />
         <Projetos projetos={projetos} />
         <Conhecimentos />
+        {/* <Certificacoes /> */}
       </main>
     </HomeContainer>
   );

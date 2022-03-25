@@ -8,10 +8,13 @@ import { Container } from './styles';
 import ConhecimentoItem from './ConhecimentoItem';
 
 function Conhecimentos() {
-  const t = useTranslations('Home');
+  const t = useTranslations('Home.conhecimentos');
   return (
     <Container>
-      <SectionTitle title={String(t('conhecimentos'))} />
+      <SectionTitle
+        title={String(t('title'))}
+        description={String(t('subtitle'))}
+      />
       <section>
         <ConhecimentoItem title="CSharp" icon={<SiCsharp />} />
         <ConhecimentoItem title="Nodejs" icon={<IoLogoNodejs />} />

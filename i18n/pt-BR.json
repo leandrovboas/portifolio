@@ -33,7 +33,11 @@
       "botao": "Ver todos os projetos",
       "detalhes": "Veja mais"
     },
-    "conhecimentos": "Conhecimentos"
+    "conhecimentos": {
+      "title": "Tecnologias",
+      "subtitle": "Alguns Conhecimentos"
+    },
+    "certificacoes": "Certificações"
   },
   "Contato": {
     "title": "Entre em contato comigo",
