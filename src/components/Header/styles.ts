@@ -19,13 +19,14 @@ export const Container = styled.header`
     align-items: center;
   }
 
-  > h1 {
+  > h1 > a {
     display: flex;
     position: absolute;
     left: 0.8rem;
     color: ${({ theme }) => theme.textLight};
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 400;
+    top: 1rem;
   }
 
   > button {

@@ -50,6 +50,11 @@
       "enviar": "Send"
     }
   },
+  "Contato2": {
+    "title": "Contact me",
+    "sub-title1": "Below are some ways to find me",
+    "sub-title2": ""
+  },
   "contrucao": {
     "Construindo": "Building..."
   },
