@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ContatoContainer } from './styles';
 import FormContato from '../../components/FormContato';
+import Contato from '../../components/Contato';
 
 export default function Projetos() {
   return (
@@ -22,6 +23,7 @@ export default function Projetos() {
       </Head>
       <main className="container">
         <FormContato />
+        <Contato />
       </main>
     </ContatoContainer>
   );

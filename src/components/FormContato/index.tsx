@@ -1,8 +1,14 @@
 import { useTranslations } from 'next-intl';
 import { Container } from './styles';
 import Form from './Form';
+import { useFeatureToggle } from '../../hooks/useFeatureToggle';
 
 function FormContato() {
+  const [isDisabled] = useFeatureToggle();
+
+  if (isDisabled('FormContato')) {
+    return null;
+  }
   const t = useTranslations('Contato');
   return (
     <Container>

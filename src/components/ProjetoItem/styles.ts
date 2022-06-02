@@ -48,5 +48,27 @@ export const Container = styled.div<ContainerProps>`
       opacity: 0.7;
       transition: 0.5s;
     }
+
+    ::after {
+      position: absolute;
+      top: -4px;
+      bottom: -4px;
+      left: -4px;
+      right: -4px;
+      background: linear-gradient(
+        45deg,
+        ${({ theme }) => theme.primary} 40%,
+        ${({ theme }) => theme.secondary} 70%
+      );
+      content: '';
+      z-index: -1;
+      border-radius: 2rem;
+    }
+
+    &:hover {
+      box-shadow: 0 10px 30px black,
+        inset 0 0 9px ${({ theme }) => theme.secondary},
+        inset 0 0 9px ${({ theme }) => theme.primary};
+    }
   }
 `;

@@ -7,7 +7,11 @@ function Header() {
   const t = useTranslations('Header');
   return (
     <Container>
-      <h1>Leandrovboas</h1>
+      <h1>
+        <Link href="/">
+          <a>Leandrovboas</a>
+        </Link>
+      </h1>
       <ul>
         <NavLink title={String(t('home'))} path="/" />
         <NavLink title={String(t('projetos'))} path="/projetos" includes />
