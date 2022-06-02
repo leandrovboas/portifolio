@@ -22,7 +22,7 @@ export default function Projetos() {
         />
       </Head>
       <main className="container">
-        {/* <FormContato /> */}
+        <FormContato />
         <Contato />
       </main>
     </ContatoContainer>

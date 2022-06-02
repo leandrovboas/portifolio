@@ -27,8 +27,8 @@ export const ItemContainer = styled.section`
 
   > a {
     position: relative;
-    background: ${({ theme }) => theme.secondary};
-    color: ${({ theme }) => theme.secondary};
+    background: ${({ theme }) => theme.textLight};
+    color: ${({ theme }) => theme.textLight};
     text-decoration: none;
     font-size: 1.5rem;
     letter-spacing: 0.1rem;
