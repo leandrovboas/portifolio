@@ -1,4 +1,4 @@
-import { Container } from './styles';
+import { Container, Title, SubTitle } from './styles';
 
 interface BannerProjetoProps {
   title: string;
@@ -9,12 +9,10 @@ interface BannerProjetoProps {
 function BannerProjeto({ title, type, imgUrl }: BannerProjetoProps) {
   return (
     <Container imgUrl={imgUrl}>
-      <div className="overlay">
-        <section>
-          <h1>{title}</h1>
-          <h2>{type}</h2>
-        </section>
-      </div>
+      <section>
+        <Title>{title}</Title>
+        <SubTitle>{type}</SubTitle>
+      </section>
     </Container>
   );
 }
