@@ -1,16 +1,13 @@
 import { useTranslations } from 'next-intl';
-import { Container, TextContainer, InfosContainer, CodeItem } from './styles';
+import HomeCard from '../HomeCard';
+import { Container, InfosContainer, CodeItem } from './styles';
 
 function HomeHero() {
   const t = useTranslations('Home.HomeHero');
   return (
     <Container data-aos="fade-up">
-      <img src="/leandro.png" alt="Minha Foto" />
+      <HomeCard />
       <div>
-        <TextContainer>
-          <h1>{String(t('title'))}</h1>
-          <h2>{String(t('sub-title'))}</h2>
-        </TextContainer>
         <InfosContainer>
           <CodeItem data-aos="zoom-in">
             <span className="comment">{String(t('comentario1'))}</span>

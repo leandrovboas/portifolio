@@ -7,37 +7,21 @@ export const Container = styled.section`
   justify-content: center;
   margin-top: 5rem;
 
-  > img {
-    width: 38rem;
-    flex: 1;
-    border-radius: 50%;
-  }
-
   > div {
     flex: 4;
   }
 
   @media (max-width: 1458px) {
-    > img {
-      width: 35rem;
-    }
-
     > div {
       flex: 1;
     }
   }
 
-  @media (max-width: 1000px) {
-    > img {
-      width: 22rem;
-    }
-  }
-
   @media (max-width: 700px) {
-    flex-direction: column-reverse;
-    > div {
+    flex-direction: column;
+    /*> div {
       width: 100%;
-    }
+    }*/
   }
 `;
 
