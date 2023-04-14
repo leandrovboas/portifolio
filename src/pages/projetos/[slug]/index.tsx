@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import md from 'markdown-it';
 import { remark } from 'remark';
 import html from 'remark-html';
 import BannerProjeto from '../../../components/BannerProjeto';
