@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import md from 'markdown-it';
+import { remark } from 'remark';
+import html from 'remark-html';
 import BannerProjeto from '../../../components/BannerProjeto';
 import { IProjeto } from '../../../types/Projet';
 import { ProjetoContainer } from './styles';
@@ -27,9 +29,7 @@ export default function Projetos({ projeto }: ProjetoProps) {
         imgUrl={projeto.thumbnail}
       />
       <main>
-        <div
-          dangerouslySetInnerHTML={{ __html: md().render(projeto.description) }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: projeto.description }} />
         <button type="button">
           <a href="/projetos">Ver todos projeto</a>
         </button>
@@ -40,6 +40,10 @@ export default function Projetos({ projeto }: ProjetoProps) {
 
 export async function getServerSideProps(context) {
   const projeto = await ProjetosService.find(context.query.slug);
+  const processedContent = await remark()
+    .use(html)
+    .process(projeto.description);
+  projeto.description = processedContent.toString();
   return {
     props: { projeto }
   };

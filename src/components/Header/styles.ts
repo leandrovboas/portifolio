@@ -78,6 +78,7 @@ export const Container = styled.header`
 
   @media (max-width: 750px) {
     height: 6rem;
+    width: 100%;
     padding-top: 0rem;
     a {
       font-size: 1rem;

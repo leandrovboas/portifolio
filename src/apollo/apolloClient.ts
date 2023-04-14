@@ -7,9 +7,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri:
-    `${process.env.NEXT_PUBLIC_STRAPI}/graphql` ||
-    'https://portifolio-strapi.herokuapp.com/graphql'
+  uri: `${process.env.NEXT_PUBLIC_STRAPI}/graphql`
 });
 
 const defaultOptions: DefaultOptions = {

@@ -25,7 +25,7 @@ export const ProjetosService = {
       return projetos;
     } catch (err) {
       console.error('Error fetching data apolloClient projects', err);
-      return {};
+      return null;
     }
   },
 
@@ -51,7 +51,7 @@ export const ProjetosService = {
     } catch (err) {
       console.error('Error fetching project', err);
 
-      return {};
+      return null;
     }
   }
 };
