@@ -1,6 +1,8 @@
+import { useTranslations } from 'next-intl';
 import { HomeCardContainer, ImgBx, Details } from './styles';
 
 function HomeCard() {
+  const t = useTranslations('Home.HomeHero');
   return (
     <HomeCardContainer>
       <ImgBx>
@@ -9,7 +11,7 @@ function HomeCard() {
       <Details>
         <h2>
           Leandro Vilas Boas <br />
-          <span>Desenvolvedor de Software</span>
+          <span>{String(t('funcao'))}</span>
         </h2>
       </Details>
     </HomeCardContainer>

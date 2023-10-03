@@ -14,7 +14,7 @@ function Header() {
       </h1>
       <ul>
         <NavLink title={String(t('home'))} path="/" />
-        <NavLink title={String(t('projetos'))} path="/projetos" includes />
+        {/* <NavLink title={String(t('projetos'))} path="/projetos" includes /> */}
         <NavLink title={String(t('blog'))} path="/blog" includes />
       </ul>
       <button type="button">
